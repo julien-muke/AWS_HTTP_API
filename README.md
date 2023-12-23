@@ -47,6 +47,34 @@ Author from scratch is a good option to use, we're going to leave pretty much ev
 We're going to doing do some code editing a little bit later in the console, directly in the editor if we click on `lambda_function.py` that is what is currently in this lambda function, it's just a lambda handler it's returning hello from lambda, we're going to keep for now so what i want to do now and come back to that later
 
 
+![Screenshot](/img/lambda_function.png)
+
+
+
+Go back the api gateway refresh the page to update the changes, go ahead and click on lambda functions and now you will see our lambda function popping up click on it and for api name we can pick whatever you want, i'm just going to call mine persons and click on the next button to go to the next section
+
+
+![Screenshot](/img/api.png)
+
+
+The next section is about routes we said that we wanted to create two different routes for this exercise one was a `GET` for `/getPerson` route and the other was a `POST` for `/createPerson`, change the method to get and the the resource path is going to be slash get person and then the target is going to be what we just integrated with which is our CrudAppFunction.
+
+We also need to create a second route which is a post and that is going to be slash create person and it's also going to point to the same lambda function, because if you wanted to create two different functions one for each nothing wrong with that but i'm just going to do this in a way such that in my code itself i'll know whether or not get person or create person isn't being invoked so i can respond respectively so that's all we really need to do here click on next
+
+
+
+![Screenshot](/img/route.png)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
