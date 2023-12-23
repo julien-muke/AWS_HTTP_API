@@ -5,7 +5,7 @@ API Gateway is an AWS service that allows you to build HTTP or REST APIs. In thi
 
 ## 🤖 Project Overview
 
-I'm going to show you how to create a http api using api gateway in aws, we're going to be creating two routes for our api the first one is called `/getPerson` and that's going to be a get api and the second one is going to be called `/createPerson` and that's a post api. 
+I'm going to show you how to create a HTTP API using API Gateway in AWS, we're going to be creating two routes for our API the first one is called `/getPerson` and that's going to be a get api and the second one is going to be called `/createPerson` and that's a post api. 
 
 These are going to be backed by a single lambda function and i'm going to add some conditional logic in this lambda function so that it can handle both of these different endpoints.
 
