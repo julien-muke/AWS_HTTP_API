@@ -83,13 +83,64 @@ To test our API we're going to use a tool called Postman which is a tool that he
 
 
 
-Open Postman i'm going to open two tabs on the left, the one that i'm on right now is going to be for `/getPerson` and if i just test this first i just click on send we're  calling that API Gateway endpoint and then turn the lambda function whit the output `"Hello from lambda"`
+Open Postman i'm going to open two tabs on the left, the one that i'm on right now is going to be for `/getPerson` and if i just test this first i just click on send we're  calling that API Gateway endpoint and then turn the lambda function whit the output `"Hello from lambda"`.
+
+I will add some parameters so if i were creating a get person API the most logical thing that a person would pass into this API is probably something like `personId` as a Key and `personId123` as a value
+
 
 
 ![Screenshot](/img/postman_test_1.png)
 
 
-But obviously this will change but i do want to make a change here and i want to add some parameters so if i were creating a get person API the most logical thing that a person would pass into this API is probably something like `personId` as a Key and `personId123` as a value
+
+Let's go ahead and set up the other API which is `/createPerson` so let's do the same thing other tab now i'm going to change it to POST now and the same kind of exercise applies we need to put some data in the the body of this request since it's a POST
+click on body instead of params i'm going to change this to raw just so
+that it's in JSON, let's say in this there's probably a million other ways to do this by the way so i'm probably doing to creating a person something like first name and then let's call it julien and let's say last name Muke and let's say email myemail gmail.com
+
+
+
+![Screenshot](/img/postman_2.png)
+
+
+Go back the lambda function, just early on the the goal of our next step is to figure out do i extract values
+from my events because the values that get passed into the lambda function from API Gateway based on what we just did in Postman are going to be inside the event object.
+
+Copy and paste the code to the `lambda_function.py` make sure you click deploy button
+
+
+```bash
+import json
+import uuid
+
+GET_RAW_PATH = "/getPerson"
+CREATE_RAW_PATH = "/createPerson"
+
+def lambda_handler(event, context):
+    print(event)
+    if event['rawPath'] == GET_RAW_PATH:
+        print('Received getPerson request')
+        personId = event['queryStringParameters']['personId']
+        print("with param personId=" + personId)
+        return { "firstName": "Julien " + personId, "lastName": "M", "email": "myEmail@gmail.com" }
+    elif event['rawPath'] == CREATE_RAW_PATH:
+        print('Received createPerson request')
+        decodedBody = json.loads(event['body'])
+        firstname = decodedBody['firstname']
+        print('with param firstname=' + firstname)
+        return { "personId": str(uuid.uuid1())}
+
+```
+
+
+![Screenshot](/img/lambda_code.png)
+
+
+
+Let's go back to Postman and invoke this we're just going to get a response back but if we click on send we should see some kind of person id key and a random ID being returned back to us
+
+
+
+![Screenshot](/img/postman_3.png)
 
 
 
