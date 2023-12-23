@@ -1,4 +1,4 @@
-## 🚨 AWS Project - AWS API Gateway to Lambda Tutorial in Python | Build a HTTP API (2/2)
+# 🚨 AWS Project - AWS API Gateway to Lambda Tutorial in Python | Build a HTTP API (2/2)
 
 API Gateway is an AWS service that allows you to build HTTP or REST APIs. In this tutorial, I walk you through how to create a HTTP endpoint, followed by how to create a Lambda function and how to connect the Lambda function to the API Gateway endpoint!
 
@@ -14,7 +14,7 @@ These are going to be backed by a single lambda function and i'm going to add so
 
 ![Screenshot](/img/aws_archi.png)
 
-# 👉 Step 1: creating the http api in the api gateway
+## 👉 Step 1: Creating the HTTP API in the API Gateway
 
 Go to the console and navigate to api gateway, choose HTTP API then click build
 
@@ -64,6 +64,36 @@ We also need to create a second route which is a post and that is going to be sl
 
 
 ![Screenshot](/img/route.png)
+
+
+
+The next step is for stages if you want to use a stage that means something maybe test, beta or production depending on what you're trying to do you can go and name it whatever you want or leave it as default, i'm going to leave it as default in my case.
+
+The second option is auto deploy and it basically just allows you to say if i change any settings for this HTTP API automatically deploy a new version to respect those settings if you don't like that or you think it's too dangerous you can disable that and then you'll have to manually deploy your API every time this is more similar to what you have in the REST version of API Gateway but i'm going to leave it on and click on next. Review everything and click on create
+
+
+![Screenshot](/img/stage.png)
+
+
+To test our API we're going to use a tool called Postman which is a tool that helps you make service calls or requests to endpoints and it allows you to configure a whole bunch of options along the way, we'll use Postman test both the `/getPerson` and the `/createPerson` API before we actually write our code. So back to the API Gateway and copy the `Invoke URL`
+
+
+
+![Screenshot](/img/invoke_url.png)
+
+
+
+Open Postman i'm going to open two tabs on the left, the one that i'm on right now is going to be for `/getPerson` and if i just test this first i just click on send we're  calling that API Gateway endpoint and then turn the lambda function whit the output `"Hello from lambda"`
+
+
+![Screenshot](/img/postman_test_1.png)
+
+
+But obviously this will change but i do want to make a change here and i want to add some parameters so if i were creating a get person API the most logical thing that a person would pass into this API is probably something like `personId` as a Key and `personId123` as a value
+
+
+
+
 
 
 
