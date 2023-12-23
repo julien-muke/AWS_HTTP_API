@@ -14,7 +14,45 @@ These are going to be backed by a single lambda function and i'm going to add so
 
 ![Screenshot](/img/aws_archi.png)
 
-## 👉 Step 1: 
+# 👉 Step 1: creating the http api in the api gateway
+
+Go to the console and navigate to api gateway, choose HTTP API then click build
+
+
+![Screenshot](/img/create_http_api.png)
+
+
+Click on add integration, the drop down lets us specify what we want to do, we want to select
+lambda for our integration since we're going to create a lambda function now it's asking us for some of the
+details of that lambda function it's asking us for the aws region that it's located in and the name of that lambda function.
+
+But before that let's create a lambda function first then we will come back to select the lambda function
+
+
+![Screenshot](/img/create_api.png)
+
+
+Go to the search bar and search for lambda, go to the top right and click on create function
+
+
+![Screenshot](/img/create_lambda.png)
+
+
+Author from scratch is a good option to use, we're going to leave pretty much everything default leave put in whatever name you want so mine was just called CrudAppFunction function and we are going to be using python 3.8 so make sure you pick python 3.8 leave everything else defaults and click create function
+
+
+![Screenshot](/img/create_function.png)
+
+
+We're going to doing do some code editing a little bit later in the console, directly in the editor if we click on `lambda_function.py` that is what is currently in this lambda function, it's just a lambda handler it's returning hello from lambda, we're going to keep for now so what i want to do now and come back to that later
+
+
+
+
+
+
+
+
 
 
 
