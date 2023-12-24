@@ -12,9 +12,9 @@ These are going to be backed by a single lambda function and i'm going to add so
 
 ## 📋 The Application Architecture
 
-![Screenshot](/img/aws_archi.png)
+![Screenshot](/img/diagram.png)
 
-## 👉 Step 1: Creating the HTTP API in the API Gateway
+## 👉 Creating the HTTP API in the API Gateway
 
 Go to the console and navigate to api gateway, choose HTTP API then click build
 
