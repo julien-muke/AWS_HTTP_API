@@ -10,7 +10,7 @@ I'm going to show you how to create a HTTP API using API Gateway in AWS, we're g
 These are going to be backed by a single lambda function and i'm going to add some conditional logic in this lambda function so that it can handle both of these different endpoints.
 
 
-## 📋 The Application Architecture
+## 📋 Architecture Design
 
 ![Screenshot](/img/diagram.png)
 
